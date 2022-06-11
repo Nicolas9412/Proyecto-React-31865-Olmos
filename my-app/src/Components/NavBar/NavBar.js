@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import {Link} from 'react-router-dom'
 
 const NavBar = () =>{
 
@@ -33,13 +34,13 @@ const NavBar = () =>{
                     <a className="nav-link" href="#">PC armadas</a>
                     </li>
                     <li className="nav-item mx-xl-4 mx-lg-3 text-uppercase">
-                    <a className="nav-link" href="#">Notebooks</a>
+                    <Link  to="/category/notebook" className="nav-link">Notebooks</Link>
                     </li>
                     <li className="nav-item mx-xl-4 mx-lg-3 text-uppercase">
-                    <a className="nav-link">Tablets</a>
+                    <Link  to="/category/tablet" className="nav-link">Tablets</Link>
                     </li>
                     <li className="nav-item mx-xl-4 mx-lg-3 text-uppercase">
-                    <a className="nav-link">Celulares</a>
+                    <Link  to="/category/celular" className="nav-link">Celulares</Link>
                     </li>
                     <li className="nav-item mx-xl-4 mx-lg-3 text-uppercase">
                     <a className="nav-link">Arma tu pc</a>
