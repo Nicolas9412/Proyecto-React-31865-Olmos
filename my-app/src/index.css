@@ -60,6 +60,10 @@
   height: 40px;
 }
 
+.img-detail{
+  width: 500px;
+}
+
 
 @media (min-width: 992px) and (max-width: 1199px) {
 
