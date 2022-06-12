@@ -1,12 +1,15 @@
 import CartWidget from "../CartWidget/CartWidget"
+import {Link} from 'react-router-dom'
 
 const Header = () =>{
     return (
         <header className="d-flex justify-content-lg-center justify-content-between header p-4">
-            <div className="d-flex justify-content-center align-items-center ms-lg-4 ms-2 p-3 logo ">
-            <img src={'../assets/img/logo.png'} alt='logo'></img>
-            <p className="ms-3 titulo-logo">PC Town</p>
-            </div>
+            <Link to='/' className="text-decoration-none">
+                <div className="d-flex justify-content-center align-items-center ms-lg-4 ms-2 p-3 logo ">
+                    <img src={'../assets/img/logo.png'} alt='logo'></img>
+                    <p className="ms-3 titulo-logo">PC Town</p>
+                </div>
+            </Link>
             <form class="d-none d-lg-flex justify-content-center align-items-center ms-4 form-inline my-2 my-lg-0 buscador">
                 <input className="form-control me-3 mr-sm-2" type="search" placeholder="Buscar lo que sea..." aria-label="Search"/>
                 <button className="btn btn-success my-2 my-sm-0" type="submit">

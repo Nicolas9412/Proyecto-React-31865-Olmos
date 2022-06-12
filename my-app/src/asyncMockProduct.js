@@ -88,6 +88,78 @@ const products = [
         description:"8.7\" ROM 32GB RAM 3GB ", 
         price:29999,
         pictureUrl: "../assets/img/products/tablets/tabA7Lite.png"
+    },
+    {
+        id:11,
+        title:"iPhone 11", 
+        category:"celular",
+        brand:"apple",
+        description:"6.1\" ROM 128GB RAM 4GB", 
+        price:169999,
+        pictureUrl: "../assets/img/products/celulares/iphone_11.png"
+    },
+    {
+        id:12,
+        title:"iPhone 12", 
+        category:"celular",
+        brand:"apple",
+        description:"6.1\" ROM 64GB RAM 4GB", 
+        price:196500,
+        pictureUrl: "../assets/img/products/celulares/iphone_12.png"
+    },
+    {
+        id:12,
+        title:"iPhone 12", 
+        category:"celular",
+        brand:"apple",
+        description:"6.1\" ROM 128GB RAM 4GB", 
+        price:243800,
+        pictureUrl: "../assets/img/products/celulares/iphone_13.png"
+    },
+    {
+        id:13,
+        title:"Galaxy S20 FE", 
+        category:"celular",
+        brand:"samsung",
+        description:"6.5\" ROM 128GB RAM 6GB 5G", 
+        price:85000,
+        pictureUrl: "../assets/img/products/celulares/Galaxy_S20_FE.png"
+    },
+    {
+        id:14,
+        title:"Galaxy S22 Ultra", 
+        category:"celular",
+        brand:"samsung",
+        description:"6.8\" ROM 256GB RAM 12GB 5G", 
+        price:200900,
+        pictureUrl: "../assets/img/products/celulares/Galaxy_S22_Ultra.png"
+    },
+    {
+        id:15,
+        title:"Galaxy A52", 
+        category:"celular",
+        brand:"samsung",
+        description:"6.5\" ROM 128GB RAM 12GB 5G", 
+        price:76000,
+        pictureUrl: "../assets/img/products/celulares/Galaxy_A52.png"
+    },
+    {
+        id:16,
+        title:"Galaxy Z Flip3", 
+        category:"celular",
+        brand:"samsung",
+        description:"6.7\" plegable ROM 128GB RAM 8GB 5G", 
+        price:119000,
+        pictureUrl: "../assets/img/products/celulares/Galaxy_Z_Flip3.png"
+    },
+    {
+        id:17,
+        title:"Galaxy A03", 
+        category:"celular",
+        brand:"samsung",
+        description:"6.5\" ROM 128GB RAM 4GB 5G", 
+        price:34100,
+        pictureUrl: "../assets/img/products/celulares/Galaxy_A03.png"
     }
 ]
 

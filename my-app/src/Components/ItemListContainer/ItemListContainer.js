@@ -43,7 +43,7 @@ const ItemListContainer = ({greeting}) =>{
 
     return (
         <div className="container mt-3">
-            <h1 className="mt-4">{!category? greeting : category}</h1>
+            <h1 className="mt-4 text-capitalize">{!category? greeting : category}</h1>
             {products.length > 0 ? 
             <ItemList products={products}/>
             : <h2>No hay productos</h2>}

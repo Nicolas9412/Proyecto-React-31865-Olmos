@@ -5,14 +5,27 @@ import { useParams } from 'react-router-dom'
 
 const ItemDetailContainer = () =>{
     const [product, setProduct] = useState();
+    const [loading,setLoading] = useState(true); 
 
     const { productId } = useParams()
 
     useEffect(() => {
-        getProductsById(parseInt(productId)).then(response => setProduct(response))   
+        setLoading(true)
+        getProductsById(parseInt(productId)).then(response => setProduct(response)).finally(() => {setLoading(false)})   
     },[])
-    
-    console.log(product)
+
+    if(loading){
+        return(
+            <div className="d-flex flex-column justify-content-center align-items-center mt-5">
+                <div className="spinner-border" role="status">
+                    <span className="sr-only"></span>
+                </div>
+                <h3>Cargando...</h3>
+            </div>
+            
+        )
+    }
+
     return(
         <ItemDetail {...product}/>
     )

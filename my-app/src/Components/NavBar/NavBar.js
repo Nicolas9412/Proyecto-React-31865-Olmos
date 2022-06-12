@@ -34,13 +34,13 @@ const NavBar = () =>{
                     <a className="nav-link" href="#">PC armadas</a>
                     </li>
                     <li className="nav-item mx-xl-4 mx-lg-3 text-uppercase">
-                    <Link  to="/category/notebook" className="nav-link">Notebooks</Link>
+                    <Link to="/category/notebook" className="nav-link">Notebooks</Link>
                     </li>
                     <li className="nav-item mx-xl-4 mx-lg-3 text-uppercase">
-                    <Link  to="/category/tablet" className="nav-link">Tablets</Link>
+                    <Link to="/category/tablet" className="nav-link">Tablets</Link>
                     </li>
                     <li className="nav-item mx-xl-4 mx-lg-3 text-uppercase">
-                    <Link  to="/category/celular" className="nav-link">Celulares</Link>
+                    <Link to="/category/celular" className="nav-link">Celulares</Link>
                     </li>
                     <li className="nav-item mx-xl-4 mx-lg-3 text-uppercase">
                     <a className="nav-link">Arma tu pc</a>
