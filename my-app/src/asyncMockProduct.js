@@ -108,8 +108,8 @@ const products = [
         pictureUrl: "../assets/img/products/celulares/iphone_12.png"
     },
     {
-        id:12,
-        title:"iPhone 12", 
+        id:13,
+        title:"iPhone 13", 
         category:"celular",
         brand:"apple",
         description:"6.1\" ROM 128GB RAM 4GB", 
@@ -117,7 +117,7 @@ const products = [
         pictureUrl: "../assets/img/products/celulares/iphone_13.png"
     },
     {
-        id:13,
+        id:14,
         title:"Galaxy S20 FE", 
         category:"celular",
         brand:"samsung",
@@ -126,7 +126,7 @@ const products = [
         pictureUrl: "../assets/img/products/celulares/Galaxy_S20_FE.png"
     },
     {
-        id:14,
+        id:15,
         title:"Galaxy S22 Ultra", 
         category:"celular",
         brand:"samsung",
@@ -135,7 +135,7 @@ const products = [
         pictureUrl: "../assets/img/products/celulares/Galaxy_S22_Ultra.png"
     },
     {
-        id:15,
+        id:16,
         title:"Galaxy A52", 
         category:"celular",
         brand:"samsung",
@@ -144,7 +144,7 @@ const products = [
         pictureUrl: "../assets/img/products/celulares/Galaxy_A52.png"
     },
     {
-        id:16,
+        id:17,
         title:"Galaxy Z Flip3", 
         category:"celular",
         brand:"samsung",
@@ -153,7 +153,7 @@ const products = [
         pictureUrl: "../assets/img/products/celulares/Galaxy_Z_Flip3.png"
     },
     {
-        id:17,
+        id:18,
         title:"Galaxy A03", 
         category:"celular",
         brand:"samsung",
