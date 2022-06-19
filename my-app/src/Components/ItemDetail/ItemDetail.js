@@ -1,15 +1,13 @@
 import Counter from '../Counter/Counter';
 import { useContext } from 'react';
-import { Context } from '../../App';
+import CartContext from '../../Context/CartContext';
 
 const ItemDetail = ({ id, title, description, price, pictureUrl, stock }) =>{
 
-    const { cart, setCart } = useContext(Context)
+    const { addCart } = useContext(CartContext)
 
     const handleOnAdd = (quantity) => {
-        console.log(`Se agregaron ${quantity} ${title}`)
-        setCart([...cart,{ id, title, price, quantity }])
-        console.log(cart)
+        addCart({ id, title, price, quantity })
     }
 
     return(
