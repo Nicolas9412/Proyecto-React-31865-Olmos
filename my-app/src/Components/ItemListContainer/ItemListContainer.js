@@ -1,14 +1,27 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import {getProducts, getProductsByCategory} from "../../asyncMockProduct"
 import ItemList from "../ItemList/ItemList"
-import {useParams} from "react-router-dom"
+import {useParams, Link} from "react-router-dom"
+import CartContext from "../../Context/CartContext"
 
 const ItemListContainer = ({greeting}) =>{
 
     const [products,setProducts] = useState([])
     const [loading,setLoading] = useState(true)
+    const [showBtnCart, setShowBtnCart] = useState(false)
 
     const {category} = useParams()
+
+    const {cart, clearCart} = useContext(CartContext)
+
+    const handleClearCart = () => {
+        clearCart()
+        setShowBtnCart(!showBtnCart)
+    }
+
+    useEffect(() => {
+        if(cart.length !== 0) setShowBtnCart(!showBtnCart) 
+    },[])
 
     useEffect(() => {
         setLoading(true)
@@ -44,10 +57,15 @@ const ItemListContainer = ({greeting}) =>{
     return (
         <div className="container mt-3">
             <h1 className="mt-4 text-capitalize">{!category? greeting : category}</h1>
+            {showBtnCart &&
+            <div className='d-flex justify-content-center align-items-center my-3'>
+                <button className='btn btn-danger fs-5 mx-2' onClick={handleClearCart}>Vaciar carrito</button>
+                <Link to="/cart"><button className='btn btn-success fs-5 mx-2' onClick={handleClearCart}>Terminar compra</button></Link>
+            </div>
+            }
             {products.length > 0 ? 
             <ItemList products={products}/>
             : <h2>No hay productos</h2>}
-            
         </div>
     )
 }
