@@ -10,7 +10,7 @@ const ItemDetail = ({ id, title, description, price, pictureUrl, stock }) =>{
     const { cart, addItem, removeItem, isInCart, clearCart } = useContext(CartContext)
 
     const handleOnAdd = (quantity) => {
-        addItem({ id, title, quantity })
+        addItem({ id, title, quantity, price })
         setShowCounter(!showCounter)
     }
 
