@@ -60,7 +60,7 @@ const ItemListContainer = ({greeting}) =>{
             {showBtnCart &&
             <div className='d-flex justify-content-center align-items-center my-3'>
                 <button className='btn btn-danger fs-5 mx-2' onClick={handleClearCart}>Vaciar carrito</button>
-                <Link to="/cart"><button className='btn btn-success fs-5 mx-2' onClick={handleClearCart}>Terminar compra</button></Link>
+                <Link to="/cart"><button className='btn btn-success fs-5 mx-2'>Terminar compra</button></Link>
             </div>
             }
             {products.length > 0 ? 

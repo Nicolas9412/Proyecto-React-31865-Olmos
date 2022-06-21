@@ -25,7 +25,7 @@ const Header = () =>{
                 <button className="btn btn-dark ms-lg-4 ms-2 btn-favoritos">
                     <i className="bi bi-suit-heart"></i>
                 </button>
-                {totalQuantity() !== 0 && <CartWidget/>}
+                {totalQuantity() !== 0 && <Link to='/cart'><CartWidget/></Link>}
                 <button className="btn btn-dark ms-lg-4 ms-2 text-uppercase btn-inicioSesion">
                     <p className="d-none d-sm-block m-0">iniciar sesion</p> 
                     <i className="d-sm-none bi bi-person-circle iniciarSesion"></i>

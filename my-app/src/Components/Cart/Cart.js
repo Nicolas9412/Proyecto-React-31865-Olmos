@@ -4,12 +4,12 @@ import { Link } from "react-router-dom"
 
 const Cart = () => {
 
-    const { cart, removeItem, totalBuy } = useContext(CartContext)
+    const { cart, removeItem, totalBuy , clearCart} = useContext(CartContext)
 
 
     const pintarCarrito = () => {
         return(
-        <div className="container">
+        <div className="container mt-5">
             <table className="table">
                 <thead>
                 <tr>
@@ -24,8 +24,8 @@ const Cart = () => {
                 </thead>
                 <tbody>
             {
-                cart.map((itemCart, i = 1) => <tr>
-                                            <th scope="row">{`${i++}`}</th>
+                cart.map((itemCart, i) => <tr>
+                                            <th scope="row">{`${i = i + 1}`}</th>
                                             <td>{`${itemCart.title}`}</td>
                                             <td>{`${itemCart.quantity}`}</td>
                                             <td>{`${itemCart.price}`}</td>
@@ -33,11 +33,19 @@ const Cart = () => {
                                             <td>{`${itemCart.price * itemCart.quantity}`}</td>                  
                                         </tr>)
             }
+
+                    <tr>
+                        <th scope="row"></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><button className="btn btn-danger" onClick={() => clearCart()}>Vaciar carrito</button></td>
+                        <td><p className="fs-4">TOTAL<b>{` ${totalBuy()}`}</b></p></td>                  
+                    </tr>   
                 </tbody>
             </table>
-            <div>
-                <p className="fs-4 text-end">Total<b>{` ${totalBuy()}`}</b></p>
-            </div>
+           
+
         </div>
         )
     }
