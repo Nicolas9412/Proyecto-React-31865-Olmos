@@ -4,7 +4,7 @@ const CartContext = createContext()
 
 export const CartProvider = ({ children }) =>{
 
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState([]) 
 
     const addItem = (productToAdd) => {
         if(!(cart.some((prod) => prod.id === productToAdd.id))){ // Lógica para resolver que los items no se repitan
@@ -34,13 +34,21 @@ export const CartProvider = ({ children }) =>{
     const totalBuy = () => {
         let acum = 0
         if(cart.length !== 0){
-            cart.map((itemCart)=>(acum += itemCart.quantity * itemCart.price))
+            cart.map((itemCart) => acum += itemCart.quantity * itemCart.price)
             return acum
         }
     }
 
+    const totalQuantity = () => {
+        let acum = 0
+        if(cart.length !== 0){
+            cart.map((itemCart) => acum += itemCart.quantity)
+        }
+        return acum
+    }
+
     return(
-        <CartContext.Provider value={{cart , addItem, removeItem, isInCart, clearCart, totalBuy}}>
+        <CartContext.Provider value={{cart , addItem, removeItem, isInCart, clearCart, totalBuy, totalQuantity}}>
             { children }
         </CartContext.Provider>
     )

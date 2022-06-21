@@ -1,7 +1,12 @@
 import CartWidget from "../CartWidget/CartWidget"
 import {Link} from 'react-router-dom'
+import { useContext } from "react"
+import CartContext from "../../Context/CartContext"
 
 const Header = () =>{
+
+    const {totalQuantity} = useContext(CartContext)
+
     return (
         <header className="d-flex justify-content-lg-center justify-content-between header p-4">
             <Link to='/' className="text-decoration-none">
@@ -20,7 +25,7 @@ const Header = () =>{
                 <button className="btn btn-dark ms-lg-4 ms-2 btn-favoritos">
                     <i className="bi bi-suit-heart"></i>
                 </button>
-                <CartWidget/>
+                {totalQuantity() !== 0 && <CartWidget/>}
                 <button className="btn btn-dark ms-lg-4 ms-2 text-uppercase btn-inicioSesion">
                     <p className="d-none d-sm-block m-0">iniciar sesion</p> 
                     <i className="d-sm-none bi bi-person-circle iniciarSesion"></i>
