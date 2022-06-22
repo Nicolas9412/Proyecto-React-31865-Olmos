@@ -25,7 +25,7 @@ const Counter = ({title, onAdd, stock, initial = 0}) => {
                     <button className='btn btn-success ms-3' onClick={increment}>+</button>
                 </div>
             </div>
-            <button className="btn btn-primary fs-5 mt-2" onClick={() => onAdd(count)}>{title}</button>
+            <button className="btn btn-primary fs-5 mt-2" onClick={() => count !== 0 && onAdd(count)}>{title}</button>
         </div>
     )
 
