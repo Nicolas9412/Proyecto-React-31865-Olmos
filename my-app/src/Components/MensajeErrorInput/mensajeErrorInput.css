@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.messageErrorContainer {
+  margin-top: 10px;
+  padding: 5px 0;
+  width: 100%;
+  background-color: aqua;
+  border-radius: 5px;
+  width: fit-content;
+}
+.messageErrorText {
+  padding: 0;
+  margin: 0;
+  margin-left: 16px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 15px;
+}
+.messageErrorIcono {
+  font-size: 20px;
+  color: red;
+  margin: 0 16px;
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .messageErrorText {
+    font-size: 13px;
+  }
+  .messageErrorIcono {
+    margin: 0 8px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .messageErrorText {
+    font-size: 13px;
+  }
+  .messageErrorIcono {
+    margin: 0 8px;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .messageErrorIcono {
+    margin: 0 10px;
+  }
+  .messageErrorText {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 575px) {
+  .messageErrorContainer {
+    width: fit-content;
+  }
+  .messageErrorText {
+    font-size: 13px;
+  }
+  .messageErrorIcono {
+    margin: 0 10px;
+  }
+}

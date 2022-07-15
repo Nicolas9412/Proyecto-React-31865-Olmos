@@ -19,7 +19,6 @@ const ItemDetailContainer = () => {
     getDoc(docRef)
       .then((doc) => {
         const productFormatted = { id: doc.id, ...doc.data() };
-        console.log(productFormatted);
         setProduct(productFormatted);
       })
       .catch((error) => {
@@ -28,7 +27,7 @@ const ItemDetailContainer = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [productId]);
 
   if (loading) {
     return (
