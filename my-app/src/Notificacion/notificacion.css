@@ -1,0 +1,25 @@
+.notificacionContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 200px;
+  margin-right: 40px;
+  padding: 10px 20px;
+  z-index: 12;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+}
+.notificacionIcon {
+  color: #fff;
+  margin: 0 10px;
+}
+.notificacionText {
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+  margin: 0 10px;
+}
