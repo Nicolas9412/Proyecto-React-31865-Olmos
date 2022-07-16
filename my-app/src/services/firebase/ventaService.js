@@ -19,10 +19,12 @@ const addOrdenCompra = async (orden) => {
         }
       }
     });
-    console.log("Transaction successfully committed!");
+    console.log("Transacción ejecutada con éxito!");
     await addDoc(collection(db, "orders"), { ...orden });
+    return true;
   } catch (e) {
-    console.log("Transaction failed: ", e);
+    console.log("Transacción fallida: ", e);
+    return false;
   }
 };
 

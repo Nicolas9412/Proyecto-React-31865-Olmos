@@ -132,14 +132,25 @@
 }
 
 @media (max-width: 575px) {
+  .header {
+    padding: 15px 5px !important;
+  }
+  .aLogo {
+    width: 0 !important;
+  }
   .logo img {
     width: 30px;
   }
-
   .titulo-logo {
     font-size: 1.2em;
   }
   .btn-inicioSesion {
     font-size: 1.5em;
+  }
+  .img-detail {
+    width: 300px;
+  }
+  .cartTableContainer {
+    overflow-x: auto;
   }
 }

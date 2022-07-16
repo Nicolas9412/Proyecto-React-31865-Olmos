@@ -2,25 +2,31 @@ import Counter from "../Counter/Counter";
 import { useContext, useEffect, useState } from "react";
 import CartContext from "../../Context/CartContext";
 import { Link } from "react-router-dom";
+import { NotificacionContext } from "../../Notificacion/Notificacion";
 
 const ItemDetail = ({ id, title, description, price, pictureUrl, stock }) => {
   const [showCounter, setShowCounter] = useState(true);
 
   const { addItem, removeItem, isInCart, clearCart } = useContext(CartContext);
 
+  const setNotificacion = useContext(NotificacionContext);
+
   const handleOnAdd = (quantity) => {
+    setNotificacion(`Se agregaron ${quantity} ${title}`, "success", 2);
     addItem({ id, title, quantity, price });
     setShowCounter(!showCounter);
   };
 
   const handleRemoveItem = () => {
-    removeItem({ id, title });
+    const quantity = removeItem({ id, title });
     setShowCounter(!showCounter);
+    setNotificacion(`Se removieron ${quantity} ${title}`, "warning", 2);
   };
 
   const handleClearCart = () => {
     clearCart();
     setShowCounter(!showCounter);
+    setNotificacion("Se ha vaciado el carrito", "warning", 2);
   };
 
   useEffect(() => {
@@ -28,10 +34,10 @@ const ItemDetail = ({ id, title, description, price, pictureUrl, stock }) => {
   }, [id, isInCart, showCounter]);
 
   return (
-    <>
+    <div>
       <h2 className="text-center mt-5 fs-1">Detalle de producto</h2>
-      <div className="container d-flex justify-content-center align-items-center mb-3">
-        <div>
+      <div className="container d-flex flex-column flex-md-row justify-content-center align-items-center mb-3 mt-4 mt-md-0">
+        <div className="order-2 order-md-1 mt-4 mt-md-0">
           <p className="fs-2">
             <b>{title}</b>
           </p>
@@ -75,11 +81,11 @@ const ItemDetail = ({ id, title, description, price, pictureUrl, stock }) => {
             </div>
           )}
         </div>
-        <div>
+        <div className="order-1 order-md-2">
           <img className="img-detail" src={pictureUrl} alt={title} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

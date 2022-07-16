@@ -25,7 +25,8 @@ const crearOrdenCompra = async (
     cart,
     total
   );
-  await addOrdenCompra(ordenCompra);
+  const res = await addOrdenCompra(ordenCompra);
+  return res;
 };
 
 export { crearOrdenCompra };

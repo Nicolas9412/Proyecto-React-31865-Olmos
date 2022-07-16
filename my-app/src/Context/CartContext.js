@@ -1,9 +1,24 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState, useRef } from "react";
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+
+  const renderRef = useRef(0);
+
+  useEffect(() => {
+    const cartSaved = localStorage.getItem("cart");
+    const cartParsed = JSON.parse(cartSaved);
+    setCart(cartParsed);
+  }, []);
+
+  useEffect(() => {
+    if (renderRef.current > 0) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+    renderRef.current += 1;
+  }, [cart]);
 
   const addItem = (productToAdd) => {
     // Lógica para resolver que los items no se repitan
@@ -19,7 +34,12 @@ export const CartProvider = ({ children }) => {
       const cartWithoutProduct = cart.filter(
         (prod) => prod.id !== productToRemove.id
       );
+      // Buscar el producto para devolver la cantidad
+      const queryProductToRemove = cart.find(
+        (prod) => prod.id === productToRemove.id
+      );
       setCart(cartWithoutProduct);
+      return queryProductToRemove.quantity;
     }
   };
 

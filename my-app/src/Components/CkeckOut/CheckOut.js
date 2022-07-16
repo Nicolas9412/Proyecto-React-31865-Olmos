@@ -3,10 +3,12 @@ import CartContext from "../../Context/CartContext";
 import { crearOrdenCompra } from "../../LogicBusiness/ventaLogic";
 import { useNavigate } from "react-router-dom";
 import MensajeErrorInput from "../MensajeErrorInput/MensajeErrorInput";
+import { NotificacionContext } from "../../Notificacion/Notificacion";
 
 const CheckOut = () => {
   const navigate = useNavigate();
   const { totalQuantity, cart, totalBuy, clearCart } = useContext(CartContext);
+  const setNotificacion = useContext(NotificacionContext);
   const [nombre, setNombre] = useState("");
   const [nombreError, setNombreError] = useState("");
   const [apellido, setApellido] = useState("");
@@ -63,7 +65,7 @@ const CheckOut = () => {
     setCodigoPostalError("");
   };
 
-  const finalizarCompra = (e) => {
+  const finalizarCompra = async (e) => {
     e.preventDefault();
     if (nombre === "") {
       setNombreError("Se debe ingresar nombre");
@@ -97,7 +99,7 @@ const CheckOut = () => {
       setCodigoPostalError("Se debe ingresar código postal");
       return;
     }
-    crearOrdenCompra(
+    const res = await crearOrdenCompra(
       nombre,
       apellido,
       telefono,
@@ -110,6 +112,15 @@ const CheckOut = () => {
       totalBuy()
     );
     clearCart();
+    if (res) {
+      setNotificacion("Orden de compra cargada con éxito", "success");
+    } else {
+      setNotificacion(
+        "Tenemos faltantes de los productos que pediste, realiza de nuevo tu compra",
+        "danger"
+      );
+    }
+
     navigate("/");
   };
 
@@ -124,7 +135,10 @@ const CheckOut = () => {
             </h4>
             <ul className="list-group mb-3">
               {cart.map((itemCart) => (
-                <li className="list-group-item d-flex justify-content-between lh-sm">
+                <li
+                  key={itemCart.id}
+                  className="list-group-item d-flex justify-content-between lh-sm"
+                >
                   <div>
                     <h6 className="my-0">{`${itemCart.title}`}</h6>
                     <small className="text-muted">{`Cantidad: ${itemCart.quantity}`}</small>

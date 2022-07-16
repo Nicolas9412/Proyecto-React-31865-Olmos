@@ -1,13 +1,29 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import CartContext from "../../Context/CartContext";
 import { Link } from "react-router-dom";
+import { NotificacionContext } from "../../Notificacion/Notificacion";
 
 const Cart = () => {
   const { cart, removeItem, totalBuy, clearCart } = useContext(CartContext);
+  const setNotificacion = useContext(NotificacionContext);
+
+  const handleRemoveItem = (itemCart) => {
+    const quantity = removeItem(itemCart);
+    setNotificacion(
+      `Se removieron ${quantity} ${itemCart.title}`,
+      "warning",
+      2
+    );
+  };
+
+  const handleClearCart = () => {
+    clearCart();
+    setNotificacion("Se ha vaciado el carrito", "warning", 2);
+  };
 
   const pintarCarrito = () => {
     return (
-      <div className="container mt-5">
+      <div className="container mt-5 cartTableContainer">
         <table className="table">
           <thead>
             <tr>
@@ -21,7 +37,7 @@ const Cart = () => {
           </thead>
           <tbody>
             {cart.map((itemCart, i) => (
-              <tr>
+              <tr key={i}>
                 <th scope="row">{`${(i = i + 1)}`}</th>
                 <td>{`${itemCart.title}`}</td>
                 <td>{`${itemCart.quantity}`}</td>
@@ -29,7 +45,7 @@ const Cart = () => {
                 <td>
                   <button
                     className="btn btn-warning text-white"
-                    onClick={() => removeItem(itemCart)}
+                    onClick={() => handleRemoveItem(itemCart)}
                   >
                     Remover
                   </button>
@@ -44,7 +60,10 @@ const Cart = () => {
               <td></td>
               <td></td>
               <td>
-                <button className="btn btn-danger" onClick={() => clearCart()}>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => handleClearCart()}
+                >
                   Vaciar carrito
                 </button>
               </td>
@@ -57,7 +76,7 @@ const Cart = () => {
           </tbody>
         </table>
         <Link to={"/checkout"}>
-          <button className="btn btn-primary">Pagar</button>
+          <button className="btn btn-primary">Terminar compra</button>
         </Link>
       </div>
     );

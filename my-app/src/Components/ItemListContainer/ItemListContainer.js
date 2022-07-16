@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import CartContext from "../../Context/CartContext";
 import { getDocs, collection, query, where } from "firebase/firestore";
 import { db } from "../../services/firebase";
+import { NotificacionContext } from "../../Notificacion/Notificacion";
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
@@ -13,15 +14,17 @@ const ItemListContainer = ({ greeting }) => {
   const { category } = useParams();
 
   const { cart, clearCart } = useContext(CartContext);
+  const setNotificacion = useContext(NotificacionContext);
 
   const handleClearCart = () => {
     clearCart();
     setShowBtnCart(!showBtnCart);
+    setNotificacion("Se ha vaciado el carrito", "warning", 2);
   };
 
   useEffect(() => {
-    if (cart.length !== 0) setShowBtnCart(!showBtnCart);
-  }, []);
+    cart.length !== 0 ? setShowBtnCart(true) : setShowBtnCart(false);
+  }, [cart]);
 
   useEffect(() => {
     setLoading(true);

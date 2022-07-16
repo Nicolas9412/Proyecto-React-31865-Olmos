@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <header className="d-flex justify-content-lg-center justify-content-between header p-4">
-      <Link to="/" className="text-decoration-none">
+      <Link to="/" className="text-decoration-none aLogo">
         <div className="d-flex justify-content-center align-items-center ms-lg-4 ms-2 p-3 logo ">
           <img src={"../assets/img/logo.png"} alt="logo"></img>
           <p className="ms-3 titulo-logo">PC Town</p>
